@@ -11,7 +11,7 @@ exports.up = function(knex) {
         table.date("date").notNullable();
         table.string("link", 2000);
         table.string("type");
-        table.string("notes");
+        table.string("notes",2000);
         table.timestamps(true, true);
       });
 };
