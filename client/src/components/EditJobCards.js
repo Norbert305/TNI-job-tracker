@@ -1,14 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
+export function EditJobsPage () {
 
-export function JobsPage () {
-
-  let navigate = useNavigate();
+    let navigate = useNavigate();
 
     return (<div>
       <div>
-      <h1 className="text-center jobHeaderText">Jobs Page</h1>
+      <h1 className="text-center jobHeaderText">Edit Jobs Card</h1>
       </div>
       <div className="container">
         <div className="row">
@@ -47,7 +46,7 @@ export function JobsPage () {
       <option>mobile phone</option>
     </select>
   </div>
-  <button type="submit" className="btn btn-primary" onClick={()=>{navigate("/jobcards")}}>Submit</button>
+  <button type="submit" className="btn btn-primary"  onClick={()=>{navigate("/jobcards")}}>Save</button>
 </form>
 <div className="col-2"></div>
 </div>
