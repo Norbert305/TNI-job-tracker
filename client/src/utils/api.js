@@ -169,9 +169,9 @@
 //   *  a promise that resolves to possibly an empty array of interactions saved in the database.
 //   */
  
- export async function listInteractions(params, signal) {
+ export async function listInteractions(jobId, signal) {
   const url = `${API_BASE_URL}/jobs/${jobId}`;
-  Object.entries(params).forEach(([key, value]) =>
+  Object.entries(jobId).forEach(([key, value]) =>
     url.searchParams.append(key, value.toString())
   );
   return await fetchJson(url, { headers, signal }, [])
