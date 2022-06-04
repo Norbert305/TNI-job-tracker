@@ -107,7 +107,7 @@
   */
   export async function readJob(job_id, signal) {
     const url = `${API_BASE_URL}/jobs/${job_id}`;
-  const options = {
+    const options = {
     method: "GET",
     headers,
     signal,
@@ -163,14 +163,18 @@
     //---- INTERACTION REQUEST ---//
 
 
-  /**
-  * Retrieves all existing interactions for a specific job.
-  * @returns {Promise<[interaction]>}
-  *  a promise that resolves to possibly an empty array of interactions saved in the database.
-  */
+//   /**
+//   * Retrieves all existing interactions for a specific job.
+//   * @returns {Promise<[interaction]>}
+//   *  a promise that resolves to possibly an empty array of interactions saved in the database.
+//   */
  
  export async function listInteractions(params, signal) {
-  
+  const url = `${API_BASE_URL}/jobs/${jobId}`;
+  Object.entries(params).forEach(([key, value]) =>
+    url.searchParams.append(key, value.toString())
+  );
+  return await fetchJson(url, { headers, signal }, [])
 }
 
 
@@ -185,8 +189,15 @@
  * @returns {Promise<interaction>}
  *  a promise that resolves the saved interaction.
  */
- export async function createInteraction(job, signal) {
-
+ export async function createInteraction(interaction, signal) {
+  const url = `${API_BASE_URL}/interactions`;
+  const options = {
+    method: "POST",
+    headers,
+    body: JSON.stringify({data: interaction}),
+    signal,
+  };
+  return await fetchJson(url, options);
 }
 
 
@@ -201,7 +212,13 @@
  *  a promise that resolves the saved interaction.
  */
  export async function readInteraction(interaction_id, signal) {
-  
+  const url = `${API_BASE_URL}/interactions/${interaction_id}`;
+    const options = {
+    method: "GET",
+    headers,
+    signal,
+  };
+  return await fetchJson(url, options);
  }
 
 
@@ -216,8 +233,14 @@
  * @returns {Promise<interaction>}
  *  a promise that resolves the saved interaction.
  */
- export async function updateInteraction(interaction_id, signal) {
- 
+ export async function updateInteraction(interaction, signal) {
+  const url = new URL(`${API_BASE_URL}/interactions/${interaction.interaction_id}`);
+  return await fetchJson(url, {
+    headers,
+    signal,
+    method: 'PUT',
+    body: JSON.stringify({data: interaction}),
+  })
 }
 
 
@@ -232,5 +255,12 @@
  *  a promise that resolves to the deletion of the interaction.
  */
  export async function deleteInteraction(interactionId, signal) {
-
+  const url = `${API_BASE_URL}/interactionss/${interactionId}`;
+  const options = {
+    method: "DELETE",
+    headers,
+    body: JSON.stringify({data: {}}),
+    signal,
+  };
+  return await fetchJson(url, options);
 }
