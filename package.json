@@ -1,0 +1,24 @@
+{
+  "name": "tni-job-tracker",
+  "version": "1.0.0",
+  "description": "Project for Bootup Hackathon, Job tracker",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx concurrently 'npm run start:backend' 'npm run start:client'",
+    "start:backend": "npm --prefix ./backend start",
+    "start:client": "npm --prefix ./client start",
+    "start:dev": "npx concurrently 'npm run start:dev --prefix ./backend' 'npm start --prefix ./client'"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Norbert305/TNI-job-tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Norbert305/TNI-job-tracker/issues"
+  },
+  "homepage": "https://github.com/Norbert305/TNI-job-tracker#readme"
+}
