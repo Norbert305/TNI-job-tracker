@@ -1,4 +1,5 @@
 const service = require("./jobs.service");
+const interactionsService = require("../interactions/interactions.service");
 const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
 
     //------MIDDLEWARE FUNCTIONS------//
@@ -71,6 +72,7 @@ function hasValidDate(req, res, next) {
 //GET, list all jobs
 async function list(req, res) {
   const data = await service.list();
+
     res.json({ data });
   }
 
@@ -81,6 +83,15 @@ async function read(req, res, next) {
   res.status(200).json({ job });
   
 }
+
+//GET, read one job
+async function readInteractions(req, res, next) {
+  const { jobId } = req.params;
+  const interactions = await interactionsService.read(jobId);
+  res.status(200).json({ interactions });
+  
+}
+
 
 //POST, create a job
 async function create(req, res) {
@@ -110,6 +121,7 @@ async function destroy(req, res) {
 module.exports = {
     list: asyncErrorBoundary(list),
     read: asyncErrorBoundary(read),
+    readInteractions: asyncErrorBoundary(readInteractions),
     create: [validForm, hasRequiredFields, hasValidSalary, hasValidDate, asyncErrorBoundary(create)],
     update: asyncErrorBoundary(update),
     delete: asyncErrorBoundary(destroy),

@@ -11,9 +11,9 @@
 
  router
   .route("/")
-  .get(controller.list)
   .post(controller.create)
   .all(methodNotAllowed);
+
 
 router
   .route("/:interactionId")
