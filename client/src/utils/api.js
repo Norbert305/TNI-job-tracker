@@ -64,7 +64,11 @@
   */
  
  export async function listJobs(params, signal) {
-  
+  const url = new URL(`${API_BASE_URL}/jobs`);
+  Object.entries(params).forEach(([key, value]) =>
+    url.searchParams.append(key, value.toString())
+  );
+  return await fetchJson(url, { headers, signal }, [])
  }
  
 
@@ -80,7 +84,14 @@
   *  a promise that resolves the saved job.
   */
   export async function createJob(job, signal) {
- 
+    const url = `${API_BASE_URL}/jobs`;
+    const options = {
+      method: "POST",
+      headers,
+      body: JSON.stringify({data: job}),
+      signal,
+    };
+    return await fetchJson(url, options);
  }
  
 
@@ -95,7 +106,13 @@
   *  a promise that resolves the saved job.
   */
   export async function readJob(job_id, signal) {
-   
+    const url = `${API_BASE_URL}/jobs/${job_id}`;
+  const options = {
+    method: "GET",
+    headers,
+    signal,
+  };
+  return await fetchJson(url, options);
   }
 
 
@@ -110,8 +127,14 @@
   * @returns {Promise<job>}
   *  a promise that resolves the saved job.
   */
-  export async function updateJob(job_id, signal) {
-  
+  export async function updateJob(job, signal) {
+    const url = new URL(`${API_BASE_URL}/jobs/${job.job_id}`);
+    return await fetchJson(url, {
+      headers,
+      signal,
+      method: 'PUT',
+      body: JSON.stringify({data: job}),
+    })
  }
  
  
@@ -126,7 +149,14 @@
   *  a promise that resolves to the deletion of the job.
   */
   export async function deleteJob(jobId, signal) {
-
+    const url = `${API_BASE_URL}/jobs/${jobId}`;
+    const options = {
+      method: "DELETE",
+      headers,
+      body: JSON.stringify({data: {}}),
+      signal,
+    };
+    return await fetchJson(url, options);
  }
  
 
