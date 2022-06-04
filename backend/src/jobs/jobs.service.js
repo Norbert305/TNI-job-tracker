@@ -8,7 +8,6 @@ function list() {
 //GET, read one job
 function read(jobId) {
   return knex("job").where({ job_id: jobId });
-
 }
 
 //POST, create a job
