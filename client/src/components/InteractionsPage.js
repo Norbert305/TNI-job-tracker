@@ -37,6 +37,20 @@ return (
   <label for="exampleInputPassword1" className="form-label">Summary</label>
   <input type="text" className="form-control" id="exampleInputPassword1"/>
 </div>
+<div className="mb-3">
+  <label for="exampleFormControlSelect1">Type of Interaction</label>
+    <select className="form-control" id="exampleFormControlSelect1">
+      <option>Phone Screen</option>
+      <option>Phone Interview</option>
+      <option>Onsite Interview</option>
+      <option>Take Home Assignment</option>
+      <option>Recruiter Contact</option>
+      <option>Referal Contact</option>
+      <option>Follow Up</option>
+      <option>Networking Event</option>
+      <option>Rejected</option>
+    </select>
+  </div>
 <button type="submit" className="btn btn-primary"  onClick={()=>{navigate("/interactioncards")}}>Submit</button>
 </form>
 <div className="col-2"></div>

@@ -4,6 +4,7 @@ import { EditInteractionsPage } from "./components/EditInteractionCards";
 import { EditJobsPage } from "./components/EditJobCards";
 import { InteractionsPage } from "./components/InteractionsPage";
 import { JobCards } from "./components/JobCards";
+import { JobAndInteractionListing } from "./components/JobListings";
 import { JobsPage } from "./components/JobsPage";
 import { LandingPage } from "./components/LandingPage";
 import { NavBar } from "./components/Nav";
@@ -26,6 +27,7 @@ export default function App() {
       <Route path="/interactioncards" element={<InteractionsCards />}/>
       <Route path="/editjobs" element={<EditJobsPage />}/>
       <Route path="/editinteractions" element={<EditInteractionsPage />}/>
+      <Route path="/jobandinteractivelisting" element={<JobAndInteractionListing />}/>
        </Routes>
      </Router>
      </Conatiner>
