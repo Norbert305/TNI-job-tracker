@@ -4,11 +4,13 @@ import { InteractionsPage } from "./components/InteractionsPage";
 import { JobsPage } from "./components/JobsPage";
 import { LandingPage } from "./components/LandingPage";
 import { NavBar } from "./components/Nav";
+import { Conatiner } from "./components/styled/Container.styled";
 
 export default function App() {
 
   return (
     <div className="App">
+      <Conatiner>
      <Router>
        <NavBar />
        <Routes>
@@ -18,6 +20,7 @@ export default function App() {
       <Route path="/aboutus" element={<AboutPage />}/>
        </Routes>
      </Router>
+     </Conatiner>
     </div>
   );
 }
