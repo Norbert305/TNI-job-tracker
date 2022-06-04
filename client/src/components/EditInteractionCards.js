@@ -1,16 +1,14 @@
 import React from "react"
 import { useNavigate } from "react-router-dom";
 
+export function EditInteractionsPage () {
 
-
-export function InteractionsPage () {
-
-  let navigate = useNavigate();
+    let navigate = useNavigate();
 
 return (
     <div>
     <div>
-    <h1 className="text-center jobHeaderText">Interaction Page</h1>
+    <h1 className="text-center jobHeaderText">Edit Interaction Card</h1>
     </div>
     <div className="container">
       <div className="row">
@@ -37,7 +35,7 @@ return (
   <label for="exampleInputPassword1" className="form-label">Summary</label>
   <input type="text" className="form-control" id="exampleInputPassword1"/>
 </div>
-<button type="submit" className="btn btn-primary"  onClick={()=>{navigate("/interactioncards")}}>Submit</button>
+<button type="submit" className="btn btn-primary" onClick={()=>{navigate("/interactioncards")}}>Save</button>
 </form>
 <div className="col-2"></div>
 </div>

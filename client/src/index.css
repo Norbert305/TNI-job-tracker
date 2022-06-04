@@ -34,4 +34,15 @@ code {
 
 .InteractionHeader {
   margin: 50px auto;
+  text-align: center;
+}
+
+.cb {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.title {
+  text-align: center;
 }
