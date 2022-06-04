@@ -1,4 +1,4 @@
-const knex = require("../db/connection");
+const knex = require("../db/connections");
 
 //GET, list all interactions for a specific job
 function list() {

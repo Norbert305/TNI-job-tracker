@@ -1,4 +1,4 @@
-const jobsService = require("./interactionss.service");
+const service = require("./interactions.service");
 const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
 
     //------MIDDLEWARE FUNCTIONS------//
