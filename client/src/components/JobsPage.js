@@ -42,9 +42,9 @@ export function JobsPage () {
   <div className="mb-3">
   <label for="exampleFormControlSelect1">Type</label>
     <select className="form-control" id="exampleFormControlSelect1">
-      <option>In person</option>
-      <option>zoom</option>
-      <option>mobile phone</option>
+      <option>Internship</option>
+      <option>Full-Time</option>
+      <option>Part-Time</option>
     </select>
   </div>
   <button type="submit" className="btn btn-primary" onClick={()=>{navigate("/jobcards")}}>Submit</button>

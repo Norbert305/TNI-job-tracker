@@ -1,10 +1,9 @@
 import React from "react"
-import { useNavigate } from "react-router-dom";
 
 
-export function JobCards () {
+export function JobAndInteractionListing () {
 
-  let navigate = useNavigate();
+
 
 return (
     <div className="">
@@ -15,16 +14,16 @@ return (
                     <div className="col-2"></div>
                     <div className="card col-8">
   <div className="card-header title">
-    Job Card
+    Your Card
   </div>
   <div className="card-body cb">
-    <h5 className="card-title">Position Title</h5>
+  <h5 className="card-title">Position Title</h5>
     <h5 className="card-title">Comapny Name</h5>
-    <button className="btn btn-primary" onClick={()=>{navigate("/jobandinteractivelisting")}}>View</button>
+    <h5 className="card-title">Salary</h5>
+    <h5 className="card-title">Date</h5>
+    <h5 className="card-title">Link</h5>
+    <h5 className="card-title">Notes</h5>
     <p></p>
-    <button className="btn btn-warning" onClick={()=>{navigate("/editjobs")}}>Edit</button>
-    <p></p>
-    <button className="btn btn-danger">Delete</button>
   </div>
 
 </div>

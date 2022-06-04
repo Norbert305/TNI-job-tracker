@@ -29,6 +29,9 @@ return (
           <a className="nav-link" href="#" onClick={()=>{navigate("/interactioncards")}}>Interaction Cards</a>
         </li>
         <li className="nav-item">
+          <a className="nav-link" href="#" onClick={()=>{navigate("/jobandinteractivelisting")}}>Check Status</a>
+        </li>
+        <li className="nav-item">
           <a className="nav-link" href="#" onClick={()=>{navigate("/aboutus")}}>About</a>
         </li>
       </ul>
