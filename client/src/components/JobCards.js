@@ -8,7 +8,7 @@ export function JobCards () {
 
 return (
     <div className="">
-        <h1 className="InteractionHeader">Job Listings</h1>
+        <h1 className="InteractionHeader">One Job</h1>
         <div>
             <div className="container">
                 <div className="row">
