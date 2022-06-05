@@ -17,13 +17,13 @@ return (
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav">
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#" onClick={()=>{navigate("/jobs")}} >Jobs</a>
+          <a className="nav-link active" aria-current="page" href="#" onClick={()=>{navigate("/jobs")}} >Add Job</a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="#" onClick={()=>{navigate("/interactions")}}>Interactions</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#" onClick={()=>{navigate("/jobcards")}}>Job Cards</a>
+          <a className="nav-link" href="#" onClick={()=>{navigate("/jobcards")}}>All Jobs</a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="#" onClick={()=>{navigate("/interactioncards")}}>Interaction Cards</a>
