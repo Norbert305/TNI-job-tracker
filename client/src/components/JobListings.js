@@ -1,63 +1,66 @@
-import React from "react"
+/* Look at all jobs and its interactions*/
 
+import React, { useEffect, useState } from "react";
+import { listJobs } from "../utils/api";
+import ErrorAlert from "./ErrorAlert";
+import { JobsPage } from "./JobsPage";
 
-export function JobAndInteractionListing () {
+export function JobAndInteractionListing() {
+  const [jobs, setJobs] = useState([]);
+  const [error, setError] = useState(null);
 
-  // const initialFormState = {
-  //   date: "",
-  //   name: "",
-  //   position: "",
-  //   mode: "",
-  //   summary: "",
-  // };
+  useEffect(loadJobs);
 
-  const [user, setUser] = useState([]);
-  // const [error, setError] = useState(null);
-  // const [formData, setFormData] = useState({ ...initialFormState });
+  function loadJobs() {
+    const ac = new AbortController();
+    setError(null);
+    listJobs(ac.signal).then(setJobs).catch(setError);
+    return () => ac.abort();
+  }
 
-return (
+  return (
     <div className="">
-        <h1 className="InteractionHeader">All Jobs</h1>
-        <div>
+      <h1 className="InteractionHeader">All Jobs</h1>
+
+      {jobs.map((job, index) => {
+        return (
+          <div>
             <div className="container">
-                <div className="row">
-                    <div className="col-2"></div>
-                    <div className="card col-8">
-  <div className="card-header title">
-    Your Card
-  </div>
-  <div className="card-body cb">
-  {user.map((value,index)=>{
-      return (
-          <div key={index}>
-  <h5 className="card-title">Position Title</h5>
-    <h5 className="card-title">Comapny Name</h5>
-    <h5 className="card-title">Salary</h5>
-    <h5 className="card-title">Date</h5>
-    <h5 className="card-title">Link</h5>
-    <h5 className="card-title">Notes</h5>
-    <h3>Interactions</h3>
-    <label for="exampleFormControlSelect1">Interviewed</label>
-    <select className="form-control" id="exampleFormControlSelect1">
-      <option>Yes</option>
-      <option>No</option>
-    </select>
-    </div>
-      )
-    })}
-    <p></p>
-  </div>
+              <div className="row">
+                <div className="col-2"></div>
+                <div className="card col-8">
+                  <div className="card-header title">{job.position_title}</div>
 
-</div>
-                    <div className="col-2"></div>
+                  <div className="card-body cb">
+                    <div key={index}>
+                      <h5 className="card-title">
+                        Position Title: {job.position_title}
+                      </h5>
+                      <h5 className="card-title">
+                        Company Name: {job.company_name}
+                      </h5>
+                      <h5 className="card-title">
+                        Salary: {job.salary}
+                      </h5>
+                      <h5 className="type">
+                        Type: {job.type}
+                      </h5>
+                      <h5 className="date">Date: {job.date}</h5>
+                      <h5 className="link">Link: {job.link}</h5>
+                      <h5 className="notes">
+                        Notes: {job.notes}
+                      </h5>
+                    </div>
 
+                    <p></p>
+                  </div>
                 </div>
-
+                <div className="col-2"></div>
+              </div>
             </div>
-        </div>
+          </div>
+        );
+      })}
     </div>
-)
-
-
-
+  );
 }

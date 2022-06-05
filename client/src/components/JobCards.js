@@ -19,7 +19,7 @@ return (
   </div>
   <div className="card-body cb">
     <h5 className="card-title">Position Title</h5>
-    <h5 className="card-title">Comapny Name</h5>
+    <h5 className="card-title">Company Name</h5>
     <button className="btn btn-primary" onClick={()=>{navigate("/jobandinteractivelisting")}}>View</button>
     <p></p>
     <button className="btn btn-warning" onClick={()=>{navigate("/editjobs")}}>Edit</button>
