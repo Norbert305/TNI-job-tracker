@@ -9,7 +9,7 @@ import { JobsPage } from "./components/JobsPage";
 import { LandingPage } from "./components/LandingPage";
 import { NavBar } from "./components/Nav";
 import { Conatiner } from "./components/styled/Container.styled";
-import { InteractionsCards } from "./components/styled/InteractionsCard";
+import { InteractionsCards } from "./components/InteractionsCard";
 
 export default function App() {
 
