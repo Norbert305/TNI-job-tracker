@@ -5,7 +5,7 @@ import ErrorAlert from "./ErrorAlert";
 
 export function JobsPage() {
   let navigate = useNavigate();
- 
+
   const initialFormState = {
     position_title: "",
     company_name: "",
@@ -24,10 +24,8 @@ export function JobsPage() {
     const ac = new AbortController();
     setError(null);
     try {
-      await createJob(
-        { ...formData},
-        ac.signal
-      );
+      await createJob({ ...formData, salary: Number(formData.salary) }, ac.signal);
+      navigate("/jobcards");
     } catch (error) {
       setError(error);
     }
@@ -40,7 +38,6 @@ export function JobsPage() {
       [target.name]: target.value,
     });
   };
-
 
   return (
     <div>
@@ -60,6 +57,7 @@ export function JobsPage() {
                 <input
                   type="text"
                   className="form-control"
+                  name="position_title"
                   id="position_title"
                   onChange={handleChange}
                   value={formData.position_title}
@@ -73,6 +71,7 @@ export function JobsPage() {
                 <input
                   type="text"
                   className="form-control"
+                  name="company_name"
                   id="company_name"
                   onChange={handleChange}
                   value={formData.company_name}
@@ -86,6 +85,7 @@ export function JobsPage() {
                 <input
                   type="number"
                   className="form-control"
+                  name="salary"
                   id="salary"
                   onChange={handleChange}
                   value={formData.salary}
@@ -98,6 +98,7 @@ export function JobsPage() {
                 <input
                   type="date"
                   className="form-control"
+                  name="date"
                   id="date"
                   onChange={handleChange}
                   value={formData.date}
@@ -110,6 +111,7 @@ export function JobsPage() {
                 <input
                   type="text"
                   className="form-control"
+                  name="link"
                   id="link"
                   onChange={handleChange}
                   value={formData.link}
@@ -123,27 +125,29 @@ export function JobsPage() {
                   className="form-control"
                   rows="3"
                   id="notes"
+                  name="notes"
                   onChange={handleChange}
                   value={formData.notes}
                 />
               </div>
               <div className="mb-3">
                 <label for="type">Type</label>
-                <select className="form-control" id="exampleFormControlSelect1">
-                  <option>Internship</option>
-                  <option>Full-Time</option>
-                  <option>Part-Time</option>
-                  <option>Contract</option>
-                  <option>Apprenticeship</option>
+                <select
+                  className="form-control"
+                  id="type"
+                  name="type"
+                  onChange={handleChange}
+                  value={formData.type}
+                >
+                  <option value="">-- Select an Option --</option>
+                  <option value="Internship">Internship</option>
+                  <option value="Full-Time">Full-Time</option>
+                  <option value="Part-Time">Part-Time</option>
+                  <option value="Contract">Contract</option>
+                  <option value="Apprenticeship">Apprenticeship</option>
                 </select>
               </div>
-              <button
-                type="submit"
-                className="btn btn-primary"
-                onClick={() => {
-                  navigate("/jobcards");
-                }}
-              >
+              <button type="submit" className="btn btn-primary">
                 Submit
               </button>
             </form>
